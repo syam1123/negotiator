@@ -91,6 +91,10 @@ export default {
         this.selectTab('employee')
       }
     },
+    /**
+     * Validate both employee and employer inputs
+     * Generate the status of flash message
+     */
     validateInputs() {
       let status, heading, content
       const comparedResult =
@@ -116,7 +120,7 @@ export default {
       this.showMessage(messageObject)
     },
     ...mapActions('session', ['setEmployeeSelection', 'setEmployerSelection']),
-    ...mapActions('flashMessage', ['showMessage'])
+    ...mapActions('statusModal', ['showMessage'])
   }
 }
 </script>

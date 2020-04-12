@@ -10,10 +10,14 @@ export default {
     showMessage({ commit }, messageObj = {}) {
       commit('SET_NEW_MESSAGE', messageObj)
     },
-    hideFlashMessage({ commit }) {
+    hideStatusModal({ commit }) {
       commit('RESET_MESAGE')
       commit('session/RESET_SELECTIONS', null, { root: true })
     },
+    /**
+     * Get the current weather details of London
+     * @param {Object} context the context object
+     */
     async checkCurrentTemperature({ commit }) {
       const protocol = location.protocol
       const apiEndPoint = 'api.openweathermap.org/data/2.5/weather?'

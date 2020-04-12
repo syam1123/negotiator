@@ -15,7 +15,7 @@
         <button
           :class="status"
           class="close-button"
-          @click.prevent="hideFlashMessage"
+          @click.prevent="hideStatusModal"
         >
           Close
         </button>
@@ -41,10 +41,10 @@ export default {
       return (this.weather.temp - 275).toFixed(2)
     },
     ...mapState('session', ['employeeSelection', 'employerSelection']),
-    ...mapState('flashMessage', ['isVisible', 'message', 'status', 'weather'])
+    ...mapState('statusModal', ['isVisible', 'message', 'status', 'weather'])
   },
   methods: {
-    ...mapActions('flashMessage', ['hideFlashMessage'])
+    ...mapActions('statusModal', ['hideStatusModal'])
   }
 }
 </script>

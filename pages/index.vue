@@ -1,35 +1,25 @@
 <template>
   <div>
-    <FlashMessage />
-    <NegotiatorTabs :on-submit="onSubmit" />
+    <StatusModal />
+    <NegotiatorTabs />
   </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
-import FlashMessage from '~/components/FlashMessage'
+import StatusModal from '~/components/StatusModal'
 import NegotiatorTabs from '~/components/NegotiatorTabs'
 export default {
   components: {
-    FlashMessage,
+    StatusModal,
     NegotiatorTabs
   },
-  data() {
-    return {
-      isMessageVisible: false,
-      message: '',
-      messageStatus: 'warning'
-    }
-  },
   beforeMount() {
+    // get the current temperature details of London
     this.checkCurrentTemperature()
   },
   methods: {
-    onSubmit() {},
-    toggleAlert() {
-      this.isMessageVisible = !this.isMessageVisible
-    },
-    ...mapActions('flashMessage', ['checkCurrentTemperature'])
+    ...mapActions('statusModal', ['checkCurrentTemperature'])
   }
 }
 </script>

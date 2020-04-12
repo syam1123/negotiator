@@ -1,9 +1,9 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
-import FlashMessage from '@/components/FlashMessage.vue'
+import StatusModal from '@/components/StatusModal.vue'
 
 const mockActions = {
-  hideFlashMessage: jest.fn()
+  hideStatusModal: jest.fn()
 }
 const localVue = createLocalVue()
 localVue.use(Vuex)
@@ -17,7 +17,7 @@ const store = new Vuex.Store({
       state: {},
       actions: () => {}
     },
-    flashMessage: {
+    statusModal: {
       namespaced: true,
       state: {
         message: {
@@ -35,26 +35,26 @@ const store = new Vuex.Store({
   }
 })
 
-describe('FlashMessage:', () => {
+describe('StatusModal:', () => {
   test('is a Vue instance', () => {
-    const wrapper = shallowMount(FlashMessage, {
+    const wrapper = shallowMount(StatusModal, {
       store,
       localVue
     })
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
-  test('dispatch hideFlashMessage on clicking button', () => {
-    const wrapper = shallowMount(FlashMessage, {
+  test('dispatch hideStatusModal on clicking button', () => {
+    const wrapper = shallowMount(StatusModal, {
       store,
       localVue
     })
     wrapper.find('.close-button').trigger('click')
-    expect(mockActions.hideFlashMessage.mock.calls).toHaveLength(1)
+    expect(mockActions.hideStatusModal.mock.calls).toHaveLength(1)
   })
 
   test('heading renders correctly', () => {
-    const wrapper = shallowMount(FlashMessage, {
+    const wrapper = shallowMount(StatusModal, {
       store,
       localVue
     })
@@ -62,7 +62,7 @@ describe('FlashMessage:', () => {
   })
 
   test('the classes updates correctly for button and heading', () => {
-    const wrapper = shallowMount(FlashMessage, {
+    const wrapper = shallowMount(StatusModal, {
       store,
       localVue
     })

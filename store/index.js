@@ -1,13 +1,13 @@
 import Vuex from 'vuex'
 
-import flashMessage from './modules/flashMessage'
+import statusModal from './modules/statusModal'
 import session from './modules/session'
 
 const store = () =>
   new Vuex.Store({
     state: () => ({}),
     modules: {
-      flashMessage,
+      statusModal,
       session
     },
     strict: process.env.NODE_ENV !== 'production'
