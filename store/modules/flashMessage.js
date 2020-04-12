@@ -15,9 +15,11 @@ export default {
       commit('session/RESET_SELECTIONS', null, { root: true })
     },
     async checkCurrentTemperature({ commit }) {
-      await fetch(
-        'http://api.openweathermap.org/data/2.5/weather?q=London&appid=22d64ae0e66c1c3b7aaffcd686173a9a'
-      )
+      const protocol = location.protocol
+      const apiEndPoint = 'api.openweathermap.org/data/2.5/weather?'
+      const city = 'London'
+      const apiKey = '22d64ae0e66c1c3b7aaffcd686173a9a'
+      await fetch(`${protocol}//${apiEndPoint}q=${city}&appid=${apiKey}`)
         .then((response) => {
           return response.json()
         })
