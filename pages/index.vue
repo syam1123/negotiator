@@ -1,11 +1,6 @@
 <template>
   <div>
-    <FlashMessage
-      :status="messageStatus"
-      :message="message"
-      :is-visible="isMessageVisible"
-      :toggle="toggleAlert"
-    />
+    <FlashMessage />
     <NegotiatorTabs :on-submit="onSubmit" />
   </div>
 </template>

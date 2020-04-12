@@ -1,17 +1,18 @@
 export default {
   namespaced: true,
   state: {
-    message: '',
+    message: null,
     isVisible: false,
     status: '',
     weather: null
   },
   actions: {
-    showMessage({ commit }, messageObj = null) {
+    showMessage({ commit }, messageObj = {}) {
       commit('SET_NEW_MESSAGE', messageObj)
     },
     hideFlashMessage({ commit }) {
       commit('RESET_MESAGE')
+      commit('session/RESET_SELECTIONS', null, { root: true })
     },
     async checkCurrentTemperature({ commit }) {
       await fetch(
@@ -30,12 +31,12 @@ export default {
       state.isVisible = !state.isVisible
       state.message = ''
     },
-    SET_NEW_MESSAGE(state, messageObj) {
+    SET_NEW_MESSAGE(state, messageObj = {}) {
       state.message = messageObj.message
       state.isVisible = true
       state.status = messageObj.status || 'warning'
     },
-    UPDATE_WEATHER_DATA(state, weatherReport) {
+    UPDATE_WEATHER_DATA(state, weatherReport = {}) {
       state.weather = weatherReport
     }
   }

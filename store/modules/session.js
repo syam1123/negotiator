@@ -8,20 +8,20 @@ export default {
     setEmployeeSelection({ commit }, expectation) {
       commit('SET_EMPLOYEE_SELECTION', expectation)
     },
-    hideFlashMessage({ commit }) {
-      commit('RESET_MESAGE')
+    setEmployerSelection({ commit }, proposal) {
+      commit('SET_EMPLOYER_SELECTION', proposal)
     }
   },
   mutations: {
     SET_EMPLOYEE_SELECTION(state, expectation = 0) {
-      state.employeeSelection = expectation
+      state.employeeSelection = parseInt(expectation)
     },
     SET_EMPLOYER_SELECTION(state, proposal = 0) {
-      state.employerSelection = proposal
+      state.employerSelection = parseInt(proposal)
     },
     RESET_SELECTIONS(state) {
-      state.employeeSelection = ''
-      state.employerSelection = ''
+      state.employeeSelection = 0
+      state.employerSelection = 0
     }
   }
 }
