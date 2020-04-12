@@ -14,10 +14,7 @@ const store = new Vuex.Store({
   modules: {
     session: {
       namespaced: true,
-      state: {
-        employeeSelection: 75000,
-        employerSelection: 80000
-      },
+      state: {},
       actions: () => {}
     },
     flashMessage: {

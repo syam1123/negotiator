@@ -2,6 +2,10 @@
 
 > A simple Employee - Employer salary negotiator
 
+## Live Demo
+
+> https://salary-negotiator.firebaseapp.com/
+
 ## Build Setup
 
 ```bash
